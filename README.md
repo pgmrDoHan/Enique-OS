@@ -26,3 +26,8 @@ like that
 * Easy-to-use GUI
 * Porting some programming language (Like C Lang, Cpp, Python, etc.)
 * 
+
+### Todo List
+
+* Auto Build With Github Action
+* 
