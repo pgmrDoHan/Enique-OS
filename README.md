@@ -29,5 +29,4 @@ like that
 
 ### Todo List
 
-* Auto Build With Github Action
-* 
+* add makefile 
