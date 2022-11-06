@@ -53,7 +53,9 @@ jobs:
         run: sudo apt-get install nasm -y
 
       - name: Build
-        run: make all
+        run: |
+          chmod 777 -R ./ImageMaker
+          make all
 
       - name: Test
         run: |
