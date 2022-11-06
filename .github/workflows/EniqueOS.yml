@@ -50,7 +50,9 @@ jobs:
           make clean
 
       - name: Install Packages
-        run: sudo apt-get install nasm -y
+        run: |
+          sudo apt-get update && sudo apt-get upgrade -y
+          sudo apt-get install nasm -y
 
       - name: Build
         run: |
