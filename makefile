@@ -55,7 +55,7 @@ Utility:
 	@echo 
 
 # OS 이미지 생성
-Disk.img: 00.BootLoader/BootLoader.bin 01.Kernel32/Kernel32.bin 02.Kernel64/Kernel64.bin
+Disk.img: 00.BootLoader/BootLoader.bin 01.Kernel32/Kernel32.bin 02.Kernel64/Kernel64.bin Utility
 	@echo 
 	@echo =========== Disk Image Build Start ===========
 	@echo 
