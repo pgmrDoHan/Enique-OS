@@ -58,7 +58,7 @@ jobs:
       - name: Test
         run: |
           sudo apt install qemu-system-x86 bochs
-          make run -with ${{ input.test_with }}
+          make run -with ${{ test_with }}
           sudo apt-get install imagemagick -y
 
       - uses: OrbitalOwen/desktop-screenshot-action@0.1
