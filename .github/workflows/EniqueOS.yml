@@ -62,4 +62,4 @@ jobs:
       - name: Test
         run: |
           sudo apt install qemu-system-x86
-          qemu-system-x86_64 -L . -m 64 -drive file=./Disk.img,index=0,if=floppy,format=raw -M pc -display noneqemu-system-x86_64 -L . -m 64 -drive file=./Disk.img,index=0,if=floppy,format=raw -M pc -display none
+          qemu-system-x86_64 -L . -m 64 -drive file=./Disk.img,index=0,if=floppy,format=raw -M pc -display none
