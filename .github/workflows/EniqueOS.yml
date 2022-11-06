@@ -1,0 +1,62 @@
+name: Enique OS CI/CD
+run-name: Build & Test project by @${{ github.actor }}
+
+on:
+  push:
+    branches:
+      - feature
+      - release
+      - production
+
+    paths-ignore:
+      - "README.md"
+      - "assets/**"
+
+  pull_request:
+    branches:
+      - feature
+      - main
+      - release
+      - production
+
+    paths-ignore:
+      - "README.md"
+      - "assets/**"
+
+  workflow_dispatch:
+    inputs:
+      test_with:
+        description: "What Virtualization tool to test project?"
+        required: true
+        default: "bochs"
+        type: choice
+        options:
+          - bochs
+          - qemu
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Show OS Info
+        run: cat /etc/lsb-release
+
+      - name: Clean some file
+        run: |
+          echo Run make clean
+          make clean
+
+      - name: Build
+        run: make all
+
+      - name: Test
+        run: |
+          make run -with ${{ input.test_with }}
+          sudo apt-get install imagemagick
+
+      - uses: OrbitalOwen/desktop-screenshot-action@0.1
+        with:
+          file-name: "desktop.jpg"
