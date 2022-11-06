@@ -67,7 +67,7 @@ Disk.img: 00.BootLoader/BootLoader.bin 01.Kernel32/Kernel32.bin 02.Kernel64/Kern
 	@echo 
 	
 run: Disk.img
-	qemu-system-x86_64 -L . -m 64 -fda ./Disk.img -M pc
+	qemu-system-x86_64 -L . -m 64 -drive file=./Disk.img,index=0,if=floppy,format=raw -M pc
 	
 # 소스 파일을 제외한 나머지 파일 정리	
 clean:
