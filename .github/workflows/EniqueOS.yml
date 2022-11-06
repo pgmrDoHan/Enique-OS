@@ -49,13 +49,17 @@ jobs:
           echo Run make clean
           make clean
 
+      - name: Install Packages
+        run: sudo apt-get install nasm -y
+
       - name: Build
         run: make all
 
       - name: Test
         run: |
+          sudo apt install qemu-system-x86 bochs
           make run -with ${{ input.test_with }}
-          sudo apt-get install imagemagick
+          sudo apt-get install imagemagick -y
 
       - uses: OrbitalOwen/desktop-screenshot-action@0.1
         with:
