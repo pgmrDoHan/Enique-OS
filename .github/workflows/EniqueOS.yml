@@ -61,10 +61,5 @@ jobs:
 
       - name: Test
         run: |
-          sudo apt install qemu-system-x86 bochs
-          make run
-          sudo apt-get install imagemagick -y
-
-      - uses: OrbitalOwen/desktop-screenshot-action@0.1
-        with:
-          file-name: "desktop.jpg"
+          sudo apt install qemu-system-x86
+          qemu-system-x86_64 -L . -m 64 -drive file=./Disk.img,index=0,if=floppy,format=raw -M pc -display noneqemu-system-x86_64 -L . -m 64 -drive file=./Disk.img,index=0,if=floppy,format=raw -M pc -display none
